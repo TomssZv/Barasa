@@ -16,7 +16,3 @@ html, body {
     --main-black-text-color: #1E2742;
     --second-pink-text-color:#FB7D8A;
 }
-
-#root {
-    padding: 1rem;
-}

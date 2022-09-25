@@ -20,7 +20,10 @@ function Home() {
         .then(response => response.json())
         .then((data) => {
           setRandom(cur => [...cur, data.drinks[0]])})
-        .catch(error => {console.log(error)})
+        .catch(error => {
+          index-=1
+          console.log(error)
+        })
     }
   }, [])
     
@@ -46,7 +49,8 @@ function Home() {
           <h1>Random Drinks</h1>
           <div className='cardContainer'>
             {random ? random.map((cocktail, key) => {
-              return <RandomCard 
+            return <RandomCard
+              id= {cocktail.idDrink} 
               key={key}
               count={key} 
               name={cocktail.strDrink} 

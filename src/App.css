@@ -7,6 +7,7 @@
   align-items: center;
   padding: 0rem 8rem 0rem 1rem;
   height: 5rem;
+  background-color: inherit;
 }
 
 ul {
@@ -23,9 +24,13 @@ ul {
   gap: 4rem;
 }
 
+.cardLink{
+  text-decoration: none;
+}
+
 .randomCard {
   width: 18rem;
-  height: 40vh;
+  height: 23rem;
   padding: 1rem;
   background-color: var(--second-pink-text-color);
   border-radius: 16px;
@@ -56,7 +61,7 @@ ul {
 .cardSecond {
   z-index: -10;
   width: 14rem;
-  top: 2rem;
+  top: 0.5rem;
   left: 2rem;
   height: 5rem;
   background-color: #FCBABA;
@@ -65,6 +70,7 @@ ul {
 .cardThird {
   background-color: #F9E0E2;
   z-index: -12;
+  top: -1.5rem;
   width: 10rem;
   height: 3.5rem;
   left: 4rem;
@@ -123,4 +129,12 @@ h3 {
 h1, h4, h3 {
   margin: 0;
   text-decoration: none;
+}
+
+#cocktail {
+  background-color: var(--main-bg-color);
+}
+
+.App {
+  padding: 1rem;
 }
