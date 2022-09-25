@@ -9,8 +9,83 @@
   height: 5rem;
 }
 
+ul {
+  list-style: none;
+}
+
+#categories {
+  display: flex;
+  gap: 2.5vw;
+}
+
+.cardContainer{
+  display: flex;
+  gap: 4rem;
+}
+
+.randomCard {
+  width: 18rem;
+  height: 40vh;
+  padding: 1rem;
+  background-color: var(--second-pink-text-color);
+  border-radius: 16px;
+}
+
+#search {
+  width: 95%;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#home > h1 {
+  text-decoration: underline;
+  margin: 3vh 2vw;
+}
+
 #navbar > h2 > a{
   text-decoration: none;
+}
+
+.tiers {
+  position: relative;
+  border-radius: 16px;
+  
+}
+
+.cardSecond {
+  z-index: -10;
+  width: 14rem;
+  top: 2rem;
+  left: 2rem;
+  height: 5rem;
+  background-color: #FCBABA;
+}
+
+.cardThird {
+  background-color: #F9E0E2;
+  z-index: -12;
+  width: 10rem;
+  height: 3.5rem;
+  left: 4rem;
+}
+
+.cardTitle {
+  width: 3rem;
+  z-index: 10;
+  color: white;
+}
+
+.cardImg {
+  position: relative;
+  left: 23%;
+  bottom: 2rem;
+  width: 16.5rem;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
 }
 
 #logo > a {
