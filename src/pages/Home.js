@@ -7,15 +7,11 @@ function Home() {
   const [cocktails, setCocktails] = useState(null)
   const [random, setRandom] = useState([])
   const [search, setSearch] = useState('')
+  const [randomDone, setRandomDone] = useState(null);
 
-  useEffect(() => {
-    // fetches categorie names
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
-        .then(response => response.json())
-        .then((data) => {setCocktails(data.drinks)})
-        .catch(error => {console.log(error)})
-    // fetches 5 random cocktails
-    for (var index = 0; index < 5; ++index) {
+
+  const getRandom = () => {
+   for (var index = 0; index < 5; ++index) {
       fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then(response => response.json())
         .then((data) => {
@@ -25,6 +21,17 @@ function Home() {
           console.log(error)
         })
     }
+    setRandomDone(true)
+  }
+
+  useEffect(() => {
+    // fetches categorie names
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
+        .then(response => response.json())
+        .then((data) => {setCocktails(data.drinks)})
+        .catch(error => {console.log(error)})
+    // fetches 5 random cocktails
+    getRandom()
   }, [])
     
   return (
@@ -48,16 +55,16 @@ function Home() {
       <div id="randomContainer">
           <h1>Random Drinks</h1>
           <div className='cardContainer'>
-            {random ? random.map((cocktail, key) => {
-            return <RandomCard
+              {randomDone ? random.map((cocktail, key) => {
+              return <RandomCard
               id= {cocktail.idDrink} 
               key={key}
               count={key} 
               name={cocktail.strDrink} 
-              category={cocktail.strCategory} />
-            }) : <h1>Loading...</h1>}
+              ategory={cocktail.strCategory} 
+              />
+              }) : <h1>Loading...</h1>}
           </div>
-          
       </div>
     </div>
   )

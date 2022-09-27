@@ -10,6 +10,7 @@
   background-color: inherit;
 }
 
+
 ul {
   list-style: none;
 }
@@ -21,7 +22,9 @@ ul {
 
 .cardContainer{
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cardLink{
@@ -61,7 +64,7 @@ ul {
 .cardSecond {
   z-index: -10;
   width: 14rem;
-  top: 0.5rem;
+  top: 2.5rem;
   left: 2rem;
   height: 5rem;
   background-color: #FCBABA;
@@ -70,7 +73,7 @@ ul {
 .cardThird {
   background-color: #F9E0E2;
   z-index: -12;
-  top: -1.5rem;
+  top: 0.2rem;
   width: 10rem;
   height: 3.5rem;
   left: 4rem;
