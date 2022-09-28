@@ -10,6 +10,31 @@
   background-color: inherit;
 }
 
+.cocktail-cont {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+#ingr-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingr {
+  height: 100px;
+  width: 100px;
+}
+
+.cocktail-cont > img {
+  border-radius: 25px;
+  box-shadow: 10px 10px;
+  height: fit-content;
+}
+
+.cocktail-cont > h1 {
+  font-size: 4rem;
+}
 
 ul {
   list-style: none;
