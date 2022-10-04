@@ -16,14 +16,56 @@
   padding: 2rem;
 }
 
-#ingr-cont {
+.ingr-info {
+  display: none;
+  background-color: rgba(0, 0, 0, 1);
+  position: relative;
+  bottom: 8.5rem;
+  padding: .5rem 1.5rem;
+  text-align: center;
+  width: inherit;
+}
+
+.ingr-info::after {
+  content: ' ';
+  position: absolute;
+  background-color: inherit;
+  left: 2rem;
+  width: .8rem;
+  height: .8rem;
+  transform: rotate(45deg);
+}
+
+.ingr-info > p {
+  color: white;
+}
+
+.ingr:hover .ingr-info {
+  display: block;
+}
+
+.ingr-cards {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .ingr {
   height: 100px;
   width: 100px;
+  border-radius: 12px;
+  background-color: var(--second-pink-text-color);
+}
+
+#ingrSearch {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingr-src-card {
+  background-repeat: no-repeat;
+  width: auto;
+  height: fit-content;
 }
 
 .cocktail-cont > img {

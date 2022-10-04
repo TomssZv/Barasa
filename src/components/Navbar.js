@@ -7,7 +7,6 @@ function Navbar() {
   return (
     <div id="navbar">
         <h1 id="logo"><Link to='/'>Barasa</Link></h1>
-        <h2><Link to='/cocktails'>Cocktails</Link></h2>
     </div>
   )
 }
