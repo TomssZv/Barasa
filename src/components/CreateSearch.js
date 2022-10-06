@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-function IngrSearch({ingrName}) {
+function CreateSearch({url}) {
     const [cocktails, setCocktails] = useState([])
 
     useEffect(() => {
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingrName}`)
+        fetch(url)
             .then(response => response.json())
             .then( data =>
                 setCocktails(data.drinks)
@@ -14,18 +15,19 @@ function IngrSearch({ingrName}) {
   return (
     <div id='ingrSearch'>
         {cocktails ? cocktails.map((el, key) => {
-            console.log(cocktails);
             return (
-                <div
+                <Link
+                    to={`/cocktail/${el.idDrink}`}
                     className='ingr-src-card'
                     style={{backgroundImage: `url(${el.strDrinkThumb})`}}
+                    key={key}
                 >
-                    {el.strDrink}
-                </div>
+                    <h2 className='ingr-title'>{el.strDrink}</h2>
+                </Link>
             )
         }) : <h1>Loading...</h1>}
     </div>
   )
 }
 
-export default IngrSearch
+export default CreateSearch

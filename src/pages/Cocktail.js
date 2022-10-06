@@ -5,7 +5,22 @@ function Cocktail() {
     const [cocktail, setCocktail] = useState([])
     const [ingredients, setIngredients] = useState([])
     const [ammount, setAmmount] = useState([])
+    const [top, setTop] = useState('-150%')
     const params = useParams();
+
+    function getTop(e) {
+        if(e.target.localName === 'a') {
+            if(e.target.children[0].offsetHeight === 139) {
+                setTop('-150%')
+            } else if (e.target.children[0].offsetHeight === 114) {
+                setTop('-125%')
+            } else if (e.target.children[0].offsetHeight === 73) {
+                setTop('-80%')
+            } else if (e.target.children[0].offsetHeight === 164) {
+                setTop('-175%')
+            }
+        }
+    }
 
     useEffect(() => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.id}`)
@@ -53,13 +68,15 @@ function Cocktail() {
                                     {ingredients ? ingredients.map((el, key) => {
                                         return (
                                             <Link 
-                                                to={`/ingredients/i/${el}`}
+                                                to={`/search/i/${el}`}
                                                 key={key} 
                                                 style={{backgroundImage: `url(https://www.thecocktaildb.com/images/ingredients/${el}-Small.png)`}}
                                                 className='ingr'
+                                                onMouseOver={(e) => getTop(e)} 
                                             >
                                                 <div 
                                                     className='ingr-info'
+                                                    style={{top: top}}
                                                 >
                                                     <p>{el.replaceAll('%20', ' ')}</p>
                                                     <p>{ammount[key]}</p>

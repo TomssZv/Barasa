@@ -13,24 +13,9 @@ function Categories({ name, num }) {
     .catch(error => {console.log(error)})
   }
 
-  // checks if name has "/" or " " and sets link state
   function checkName() {
     if (name.includes("/")) {
-      let tempString = '';
-      // goes over name until index of the unwanted element
-      for (let index = 0; index < name.indexOf("/"); ++index) {
-        // adds characters to temperoray string
-        tempString += name[index];
-      }
-      setLink(tempString)
-    } else if (name.includes(" ")) {
-      let tempString = '';
-      // goes over name until index of the unwanted element
-      for (let index = 0; index < name.indexOf(" "); ++index) {
-        // adds characters to temperoray string
-        tempString += name[index];
-      }
-      setLink(tempString)
+      setLink(name.replaceAll('/', '['))
     } else {
       setLink(name)
     }
@@ -44,7 +29,8 @@ function Categories({ name, num }) {
 
   return (
     <li className="category-cont">
-      <Link to={link}>
+
+      <Link to={`/search/c/${link}`}>
         <img alt='red cocktail' src={require(`../images/top-view-${num+1}.png`)}></img>
         <h3>{name}</h3>
         <h4>{len + " results"}</h4>

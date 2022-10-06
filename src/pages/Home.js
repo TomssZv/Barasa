@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react'
 import Categories from '../components/Categories'
 import RandomCard from '../components/RandomCard'
 import '../App.css'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
   const [cocktails, setCocktails] = useState(null)
   const [random, setRandom] = useState([])
   const [search, setSearch] = useState('')
   const [randomDone, setRandomDone] = useState(null);
+  const navigate = useNavigate();
 
+  function handleSubmit(e) {
+    navigate(`/search/s/${search}`);
+  }
 
   const getRandom = () => {
    for (var index = 0; index < 5; ++index) {
@@ -38,7 +43,10 @@ function Home() {
     <div id='home'>
       <div id="search-container">
         <h1>Search for drinks</h1>
-        <input id="search" type="text" value={search} onChange={(event) => setSearch(event.target.value)} placeholder='Enter the name of a drink.'></input>
+        <form onSubmit={() => handleSubmit()}>
+          <input id="search" type="text" value={search} onChange={(event) => setSearch(event.target.value)} placeholder='Enter the name of a drink.'></input>
+        </form>
+        
       </div>
       <div id='categories-container'>
         <h1>Categories</h1>
