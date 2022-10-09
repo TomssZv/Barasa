@@ -16,12 +16,19 @@ ul {
     padding: 0;
 }
 
-#root {
+.App {
     height: 100vh;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :root {
     --main-bg-color: #FEF9E4 ;
     --main-black-text-color: #1E2742;
     --second-pink-text-color:#FB7D8A;
+}
+
+a:link {
+    text-decoration: none;
 }

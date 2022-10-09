@@ -44,7 +44,7 @@ function Home() {
       <div id="search-container">
         <h1>Search for drinks</h1>
         <form onSubmit={() => handleSubmit()}>
-          <input id="search" type="text" value={search} onChange={(event) => setSearch(event.target.value)} placeholder='Enter the name of a drink.'></input>
+          <input autoComplete='off' id="search" type="text" value={search} onChange={(event) => setSearch(event.target.value)} placeholder='Enter the name of a drink.'></input>
         </form>
         
       </div>
