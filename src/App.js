@@ -11,11 +11,9 @@ function App() {
   let location = useLocation();
   
   useEffect(() => {
-    console.log(location)
     if (location.pathname.includes('cocktail') || location.pathname.includes('search')) {
       setBg('var(--main-bg-color)')
     } else {
-      console.log(bg)
       setBg(null)
     }
     // var(--main-bg-color)

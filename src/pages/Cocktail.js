@@ -48,9 +48,11 @@ function Cocktail() {
         <div id='top'>
             {cocktail ? cocktail.map((data, key) => {
                 return (
-                    <div className='cocktail-cont' key={key}>
+                    <>
+                        <h1 style={{padding: '1rem'}}>{data.strDrink}</h1>
+                        <div className='cocktail-cont' key={key}>
+                        <img src={data.strDrinkThumb} />
                         <div className='cocktail-text'>
-                            <h1>{data.strDrink}</h1>
                             <h2>Instructions</h2>
                             <p>{data.strInstructions}</p>
                             <h2>Ingreadients</h2>
@@ -89,16 +91,13 @@ function Cocktail() {
                             </div>
                             
                         </div>
-                        <img src={data.strDrinkThumb} />
                     </div>
+                    </>
+                    
                 );
             }) : <h1>Loading...</h1>}
             
-        </div>
-        <div id="bottom">
-
-        </div>
-        
+        </div> 
     </div>
   )
 }
